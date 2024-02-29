@@ -1,0 +1,9 @@
+---
+    Checks:              'bugprone-*,cert-*,clang-analyzer-*,cppcoreguidelines-*,hicpp-*,misc-*,modernize-*,performance-*,portability-*,readability-*,-cppcoreguidelines-avoid-const-or-ref-data-members,-readability-const-return-type,-cppcoreguidelines-avoid-magic-numbers,-readability-magic-numbers,-readability-identifier-length'
+    WarningsAsErrors:    true
+    HeaderFileExtensions:         ['h']
+    ImplementationFileExtensions: ['c','cpp']
+    HeaderFilterRegex:   ''
+    FormatStyle:         none
+    InheritParentConfig: true
+    User:                user
