@@ -44,7 +44,7 @@ namespace de::powerstat::datelib
 
       /**
        * Move constructor.
-       * 
+       *
        * @param[in] other Another Years object to move from.
        */
       constexpr Years(Years&& other) noexcept = default;
@@ -59,15 +59,15 @@ namespace de::powerstat::datelib
        *
        * @param[in] other Another years object to be assigned to this object.
        */
-      auto operator=(const Years &other) noexcept -> Years& = delete;
+      auto operator=(const Years &other) & noexcept -> Years& = delete;
 
       /**
        * Move assignment operator for another Years object.
-       * 
+       *
        * @param[in] other Another years object to be assigned to this object.
-       * @return Years& 
+       * @return Years&
        */
-      auto operator=(Years&& other) noexcept -> Years& = delete;
+      auto operator=(Years&& other) & noexcept -> Years& = delete;
 
 
       /**

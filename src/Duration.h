@@ -38,7 +38,7 @@ namespace de::powerstat::datelib
        */
       constexpr explicit Duration(const Years years, const Months months, const Days days)
        : years{[](const Months months, const Years years) constexpr -> const Years {unsigned long newYears = years.getYears(); unsigned long newMonths = months.getMonths(); while (newMonths >= 12) {newMonths -= 12; if (newYears == ULONG_MAX) {throw std::out_of_range("years must be <= ULONG_MAX");} ++newYears;} return Years(newYears);}(months, years)},
-         months{[](const Months months) constexpr -> const Months {unsigned long newMonths = months.getMonths(); while (newMonths >= 12) {newMonths -= 12;} return Months(newMonths);}(months)}, 
+         months{[](const Months months) constexpr -> const Months {unsigned long newMonths = months.getMonths(); while (newMonths >= 12) {newMonths -= 12;} return Months(newMonths);}(months)},
          days{[](const Days days) constexpr -> const Days {if (days.getDays() >= 31) {throw std::out_of_range("days must be < 31");} return days;}(days)}
        {
        }
@@ -53,7 +53,7 @@ namespace de::powerstat::datelib
 
       /**
        * Move constructor.
-       * 
+       *
        * @param[in] other Another Duration object to move from.
        */
       constexpr Duration(Duration&& other) noexcept = default;
@@ -68,15 +68,15 @@ namespace de::powerstat::datelib
        *
        * @param[in] other Another duration object to be assigned to this object.
        */
-      auto operator=(const Duration &other) noexcept -> Duration& = delete;
+      auto operator=(const Duration &other) & noexcept -> Duration& = delete;
 
       /**
        * Move assignment operator for another Duration object.
-       * 
+       *
        * @param[in] other Another duration object to be assigned to this object.
-       * @return Duration& 
+       * @return Duration&
        */
-      auto operator=(Duration&& other) noexcept -> Duration& = delete;
+      auto operator=(Duration&& other) & noexcept -> Duration& = delete;
 
 
       /**

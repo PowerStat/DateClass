@@ -48,7 +48,7 @@ namespace de::powerstat::datelib
 
       /**
        * Move constructor.
-       * 
+       *
        * @param[in] other Another JD object to move from.
        */
       constexpr JD(JD&& other) noexcept = default;
@@ -63,15 +63,15 @@ namespace de::powerstat::datelib
        *
        * @param[in] other Another JD object to be assigned to this object.
        */
-      auto operator=(const JD &other) noexcept -> JD& = delete;
- 
+      auto operator=(const JD &other) & noexcept -> JD& = delete;
+
       /**
        * Move assignment operator for another JD object.
-       * 
+       *
        * @param[in] other Another JD object to be assigned to this object.
-       * @return JD& 
+       * @return JD&
        */
-      auto operator=(JD&& other) noexcept -> JD& = delete;
+      auto operator=(JD&& other) & noexcept -> JD& = delete;
 
 
       /**

@@ -63,8 +63,8 @@ namespace de::powerstat::datelib
        * @param[in] jd JD
        */
       constexpr explicit JulianDate(const JD jd)
-       : year([](const JD& jd) constexpr -> const JulianYear {const unsigned long a = jd.getJD() + 1524; const unsigned short b = static_cast<unsigned short>((a - 122.1) / 365.25); const unsigned short c = static_cast<unsigned short>(a - static_cast<unsigned long>(365.25 * b)); const unsigned short d = static_cast<unsigned short>(c / 30.6001); return JulianYear(static_cast<long>(static_cast<unsigned short>(d < 14 ? d - 1 : d - 13) > 2 ? b - 4716 : b - 4715));}(jd)), 
-         month([](const JD& jd) constexpr -> const JulianMonth {const unsigned long a = jd.getJD() + 1524; const unsigned short b = static_cast<unsigned short>((a - 122.1) / 365.25); const unsigned short c = static_cast<unsigned short>(a - static_cast<unsigned long>(365.25 * b)); const unsigned short d = static_cast<unsigned short>(c / 30.6001); return JulianMonth(static_cast<unsigned short>(d < 14 ? d - 1 : d - 13));}(jd)), 
+       : year([](const JD& jd) constexpr -> const JulianYear {const unsigned long a = jd.getJD() + 1524; const unsigned short b = static_cast<unsigned short>((a - 122.1) / 365.25); const unsigned short c = static_cast<unsigned short>(a - static_cast<unsigned long>(365.25 * b)); const unsigned short d = static_cast<unsigned short>(c / 30.6001); return JulianYear(static_cast<long>(static_cast<unsigned short>(d < 14 ? d - 1 : d - 13) > 2 ? b - 4716 : b - 4715));}(jd)),
+         month([](const JD& jd) constexpr -> const JulianMonth {const unsigned long a = jd.getJD() + 1524; const unsigned short b = static_cast<unsigned short>((a - 122.1) / 365.25); const unsigned short c = static_cast<unsigned short>(a - static_cast<unsigned long>(365.25 * b)); const unsigned short d = static_cast<unsigned short>(c / 30.6001); return JulianMonth(static_cast<unsigned short>(d < 14 ? d - 1 : d - 13));}(jd)),
          day([](const JD& jd) constexpr -> const JulianDay {const unsigned long a = jd.getJD() + 1524; const unsigned short b = static_cast<unsigned short>((a - 122.1) / 365.25); const unsigned short c = static_cast<unsigned short>(a - static_cast<unsigned long>(365.25 * b)); const unsigned short d = static_cast<unsigned short>(c / 30.6001); return JulianDay(static_cast<unsigned short>(c - static_cast<unsigned short>(30.6001 * d)));}(jd))
        {
        }
@@ -79,7 +79,7 @@ namespace de::powerstat::datelib
 
       /**
        * Move constructor.
-       * 
+       *
        * @param[in] other Another Date object to move from.
        */
       constexpr JulianDate(JulianDate&& other) noexcept = default;
@@ -94,15 +94,15 @@ namespace de::powerstat::datelib
        *
        * @param[in] other Another date object to be assigned to this object.
        */
-      auto operator=(const JulianDate &other) noexcept -> JulianDate& = delete;
+      auto operator=(const JulianDate &other) & noexcept -> JulianDate& = delete;
 
       /**
        * Move assignment operator for another Date object.
-       * 
+       *
        * @param[in] other Another date object to be assigned to this object.
-       * @return JulianDate& 
+       * @return JulianDate&
        */
-      auto operator=(JulianDate&& other) noexcept -> JulianDate& = delete;
+      auto operator=(JulianDate&& other) & noexcept -> JulianDate& = delete;
 
 
       /**
@@ -182,8 +182,8 @@ namespace de::powerstat::datelib
 
       /**
        * Get the Day within Year
-       * 
-       * @return Days (1-366) 
+       *
+       * @return Days (1-366)
        */
       [[nodiscard]] constexpr auto getDayWithinYear() const -> Days
        {
@@ -430,7 +430,7 @@ namespace de::powerstat::datelib
       t1 += JulianMonth(lhs.getYear(), month1).getDaysInMonth().getDays();
      }
     while (month2 > 1)
-     {// calc days left by the gone month of the year2 
+     {// calc days left by the gone month of the year2
       --month2;
       t2 += JulianMonth(rhs.getYear(), month2).getDaysInMonth().getDays();
      }
@@ -446,7 +446,7 @@ namespace de::powerstat::datelib
      }
     if (t1 > t2)
      {
-      return(Days(t1 - t2));  
+      return(Days(t1 - t2));
      }
     return(Days(t2 - t1));
    }
@@ -598,7 +598,7 @@ namespace de::powerstat::datelib
     year -= rhs.getYears().getYears();
     if (const unsigned short months = rhs.getMonths().getMonths(); month > months)
      {
-      month -= months;  
+      month -= months;
      }
     else
      {
@@ -702,7 +702,7 @@ namespace de::powerstat::datelib
 
   /**
    * Get easter date for year.
-   * 
+   *
    * @param[in] year Julian year
    * @return JulianDate easter
    */

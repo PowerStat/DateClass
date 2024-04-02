@@ -42,12 +42,12 @@ namespace de::powerstat::datelib
 
       /**
        * Constructor.
-       * 
+       *
        * @param[in] jd Number of days since beginning of JD
        * @throws std::out_of_range When jd is < 2400001
        */
       constexpr explicit MJD(const JD& jd)
-       : mjd([](const JD& jd) constexpr -> const unsigned long {if (jd.getJD() < 2400001UL) {throw std::out_of_range("JD must be >= 2400001");} return (jd.getJD() - 2400001UL);}(jd)) 
+       : mjd([](const JD& jd) constexpr -> const unsigned long {if (jd.getJD() < 2400001UL) {throw std::out_of_range("JD must be >= 2400001");} return (jd.getJD() - 2400001UL);}(jd))
        {
        }
 
@@ -61,7 +61,7 @@ namespace de::powerstat::datelib
 
       /**
        * Move constructor.
-       * 
+       *
        * @param[in] other Another MJD object to move from.
        */
       constexpr MJD(MJD&& other) noexcept = default;
@@ -76,15 +76,15 @@ namespace de::powerstat::datelib
        *
        * @param[in] other Another MJD object to be assigned to this object.
        */
-      auto operator=(const MJD &other) -> MJD& = delete;
- 
+      auto operator=(const MJD &other) & -> MJD& = delete;
+
       /**
        * Move assignment operator for another MJD object.
-       * 
+       *
        * @param[in] other Another MJD object to be assigned to this object.
-       * @return MJD& 
+       * @return MJD&
        */
-      auto operator=(MJD&& other) noexcept -> MJD& = delete;
+      auto operator=(MJD&& other) & noexcept -> MJD& = delete;
 
       /**
        * Get MJD as primitive data type.
@@ -99,7 +99,7 @@ namespace de::powerstat::datelib
 
       /**
        * Get JD datat type.
-       * 
+       *
        * @return JD
        * @throws std::out_of_range When mjd is >= ULONG_MAX - 2400001
        */

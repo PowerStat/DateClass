@@ -44,7 +44,7 @@ namespace de::powerstat::datelib
 
        /**
         * Constructor.
-        * 
+        *
         * @param[in] jd Julian date
         * @throws std::out_of_range if jd is < 1718867 or > 2298884
         */
@@ -63,7 +63,7 @@ namespace de::powerstat::datelib
 
       /**
        * Move constructor.
-       * 
+       *
        * @param[in] other Another Year object to move from.
        */
       constexpr ScaligerYear(ScaligerYear&& other) noexcept = default;
@@ -79,15 +79,15 @@ namespace de::powerstat::datelib
        * @param[in] other Another year object to be assigned to this object.
        * @return ScaligerYear
        */
-      auto operator=(const ScaligerYear &other) noexcept -> ScaligerYear& = delete;
+      auto operator=(const ScaligerYear &other) & noexcept -> ScaligerYear& = delete;
 
       /**
        * Move assignment operator for another Year object.
-       * 
+       *
        * @param[in] other Another year object to be assigned to this object.
-       * @return ScaligerYear& 
+       * @return ScaligerYear&
        */
-      auto operator=(ScaligerYear&& other) noexcept -> ScaligerYear& = delete;
+      auto operator=(ScaligerYear&& other) & noexcept -> ScaligerYear& = delete;
 
 
       /**
@@ -103,8 +103,8 @@ namespace de::powerstat::datelib
 
       /**
        * Get the JD of this ScaligerYear.
-       * 
-       * @return JD 
+       *
+       * @return JD
        */
       [[nodiscard]] constexpr auto getJD() const noexcept -> JD
        {

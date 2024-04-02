@@ -65,7 +65,7 @@ namespace de::powerstat::datelib
 
       /**
        * Move constructor.
-       * 
+       *
        * @param[in] other Another Year object to move from.
        */
       constexpr JulianYear(JulianYear&& other) noexcept = default;
@@ -81,15 +81,15 @@ namespace de::powerstat::datelib
        * @param[in] other Another year object to be assigned to this object.
        * @return JulianYear
        */
-      auto operator=(const JulianYear &other) noexcept -> JulianYear& = delete;
+      auto operator=(const JulianYear &other) & noexcept -> JulianYear& = delete;
 
       /**
        * Move assignment operator for another Year object.
-       * 
+       *
        * @param[in] other Another year object to be assigned to this object.
-       * @return JulianYear& 
+       * @return JulianYear&
        */
-      auto operator=(JulianYear&& other) noexcept -> JulianYear& = delete;
+      auto operator=(JulianYear&& other) & noexcept -> JulianYear& = delete;
 
 
       /**
@@ -160,7 +160,7 @@ namespace de::powerstat::datelib
 
       /**
        * ScaligerYear of this year.
-       * 
+       *
        * @return ScaligerYear
        */
       [[nodiscard]] constexpr auto getScaligerYear() const -> ScaligerYear

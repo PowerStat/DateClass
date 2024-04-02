@@ -69,7 +69,7 @@ namespace de::powerstat::datelib
 
       /**
        * Move constructor.
-       * 
+       *
        * @param[in] other Another Day object to move from.
        */
       constexpr JulianDay(JulianDay&& other) noexcept = default;
@@ -85,15 +85,15 @@ namespace de::powerstat::datelib
        * @param[in] other Another day object to be assigned to this object.
        * @return JulianDay
        */
-      auto operator=(const JulianDay &other) noexcept -> JulianDay& = delete;
+      auto operator=(const JulianDay &other) & noexcept -> JulianDay& = delete;
 
       /**
        * Move assignment operator for another Day object.
-       * 
+       *
        * @param[in] other Another day object to be assigned to this object.
-       * @return JulianDay& 
+       * @return JulianDay&
        */
-      auto operator=(JulianDay&& other) noexcept -> JulianDay& = delete;
+      auto operator=(JulianDay&& other) & noexcept -> JulianDay& = delete;
 
 
       /**

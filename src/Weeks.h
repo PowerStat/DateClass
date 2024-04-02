@@ -44,7 +44,7 @@ namespace de::powerstat::datelib
 
       /**
        * Move constructor.
-       * 
+       *
        * @param[in] other Another Weeks object to move from.
        */
       constexpr Weeks(Weeks&& other) noexcept = default;
@@ -59,15 +59,15 @@ namespace de::powerstat::datelib
        *
        * @param[in] other Another weeks object to be assigned to this object.
        */
-      constexpr auto operator=(const Weeks &other) noexcept -> Weeks& = delete;
+      constexpr auto operator=(const Weeks &other) & noexcept -> Weeks& = delete;
 
       /**
        * Move assignment operator for another Weeks object.
-       * 
+       *
        * @param[in] other Another weeks object to be assigned to this object.
-       * @return Weeks& 
+       * @return Weeks&
        */
-      constexpr auto operator=(Weeks&& other) noexcept -> Weeks& = delete;
+      constexpr auto operator=(Weeks&& other) & noexcept -> Weeks& = delete;
 
       /**
        * Get number of weeks as primitive data type.

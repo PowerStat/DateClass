@@ -44,7 +44,7 @@ namespace de::powerstat::datelib
 
       /**
        * Move constructor.
-       * 
+       *
        * @param[in] other Another Days object to move from.
        */
       constexpr Days(Days&& other) noexcept = default;
@@ -60,15 +60,15 @@ namespace de::powerstat::datelib
        * @param[in] other Another days object to be assigned to this object.
        * @return Days
        */
-      auto operator=(const Days &other) noexcept -> Days& = delete;
+      auto operator=(const Days &other) & noexcept -> Days& = delete;
 
       /**
        * Move assignment operator for another Days object.
-       * 
+       *
        * @param[in] other Another days object to be assigned to this object.
-       * @return Days& 
+       * @return Days&
        */
-      auto operator=(Days&& other) noexcept -> Days& = delete;
+      auto operator=(Days&& other) & noexcept -> Days& = delete;
 
 
       /**

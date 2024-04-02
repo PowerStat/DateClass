@@ -44,7 +44,7 @@ namespace de::powerstat::datelib
 
       /**
        * Move constructor.
-       * 
+       *
        * @param[in] other Another Months object to move from.
        */
       constexpr Months(Months&& other) noexcept = default;
@@ -59,15 +59,15 @@ namespace de::powerstat::datelib
        *
        * @param[in] other Another months object to be assigned to this object.
        */
-     auto operator=(const Months &other) noexcept ->  Months& = delete;
+     auto operator=(const Months &other) & noexcept ->  Months& = delete;
 
       /**
        * Move assignment operator for another Months object.
-       * 
+       *
        * @param[in] other Another months object to be assigned to this object.
-       * @return Months& 
+       * @return Months&
        */
-      auto operator=(Months&& other) noexcept -> Months& = delete;
+      auto operator=(Months&& other) & noexcept -> Months& = delete;
 
 
       /**

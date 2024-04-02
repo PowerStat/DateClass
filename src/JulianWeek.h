@@ -68,7 +68,7 @@ namespace de::powerstat::datelib
 
       /**
        * Move constructor.
-       * 
+       *
        * @param[in] other Another Week object to move from.
        */
       constexpr JulianWeek(JulianWeek&& other) noexcept = default;
@@ -83,15 +83,15 @@ namespace de::powerstat::datelib
        *
        * @param[in] other Another week object to be assigned to this object.
        */
-      auto operator=(const JulianWeek &other) noexcept -> JulianWeek& = delete;
+      auto operator=(const JulianWeek &other) & noexcept -> JulianWeek& = delete;
 
       /**
        * Move assignment operator for another Week object.
-       * 
+       *
        * @param[in] other Another week object to be assigned to this object.
-       * @return JulianWeek& 
+       * @return JulianWeek&
        */
-      auto operator=(JulianWeek&& other) noexcept -> JulianWeek& = delete;
+      auto operator=(JulianWeek&& other) & noexcept -> JulianWeek& = delete;
 
 
       /**

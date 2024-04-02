@@ -68,7 +68,7 @@ namespace de::powerstat::datelib
 
       /**
        * Move constructor.
-       * 
+       *
        * @param[in] other Another Month object to move from.
        */
       constexpr JulianMonth(JulianMonth&& other) noexcept = default;
@@ -83,15 +83,15 @@ namespace de::powerstat::datelib
        *
        * @param[in] other Another month object to be assigned to this object.
        */
-      auto operator=(const JulianMonth &other) noexcept -> JulianMonth& = delete;
+      auto operator=(const JulianMonth &other) & noexcept -> JulianMonth& = delete;
 
       /**
        * Move assignment operator for another Month object.
-       * 
+       *
        * @param[in] other Another month object to be assigned to this object.
-       * @return Month& 
+       * @return Month&
        */
-      auto operator=(JulianMonth&& other) noexcept -> JulianMonth& = delete;
+      auto operator=(JulianMonth&& other) & noexcept -> JulianMonth& = delete;
 
       /**
        * Get month number as primitive data type.
@@ -119,14 +119,14 @@ namespace de::powerstat::datelib
           case  7 :
           case  8 :
           case 10 :
-          case 12 : 
+          case 12 :
             return Days(31);
           case  4 :
           case  6 :
           case  9 :
-          case 11 : 
+          case 11 :
             return Days(30);
-          case  2 : 
+          case  2 :
             return Days(this->leapYear ? 29 : 28);
           default:
             throw std::out_of_range("Illegal state month < 1 or month > 12");
