@@ -1,3 +1,6 @@
 .cache/
 .externalToolBuilders/
 build/
+coverity.bat
+cov-int.zip
+cov-int/
